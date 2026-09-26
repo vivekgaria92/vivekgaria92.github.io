@@ -202,12 +202,12 @@
     aspect-ratio:9/13; text-decoration:none; display:flex; flex-direction:column; justify-content:flex-end;
     padding:14px; color:var(--text);
   }
-  .reel::before{content:""; position:absolute; inset:0; opacity:0.9;}
-  .reel-dp1::before{background:radial-gradient(circle at 30% 20%, #2c4a63, #0e1116 72%);}
-  .reel-sv1::before{background:radial-gradient(circle at 30% 20%, #235c40, #0e1116 72%);}
-  .reel-sv2::before{background:radial-gradient(circle at 70% 25%, #4a5c23, #0e1116 72%);}
-  .reel-sv3::before{background:radial-gradient(circle at 50% 15%, #5c3f23, #0e1116 72%);}
-  .reel-sv4::before{background:radial-gradient(circle at 70% 20%, #3d5c8f, #0e1116 72%);}
+  .reel::before{content:""; position:absolute; inset:0; background-size:cover; background-position:center;}
+  .reel-dp1::before{background-image:linear-gradient(to top, rgba(6,8,11,0.88), rgba(6,8,11,0.05) 60%), url('thumb-dp1.jpg');}
+  .reel-sv1::before{background-image:linear-gradient(to top, rgba(6,8,11,0.88), rgba(6,8,11,0.05) 60%), url('thumb-sv1.jpg');}
+  .reel-sv2::before{background-image:linear-gradient(to top, rgba(6,8,11,0.88), rgba(6,8,11,0.05) 60%), url('thumb-sv2.jpg');}
+  .reel-sv3::before{background-image:linear-gradient(to top, rgba(6,8,11,0.88), rgba(6,8,11,0.05) 60%), url('thumb-sv3.jpg');}
+  .reel-sv4::before{background-image:linear-gradient(to top, rgba(6,8,11,0.88), rgba(6,8,11,0.05) 60%), url('thumb-sv4.jpg');}
   .reel-play{
     position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
     width:44px; height:44px; border-radius:50%; border:1px solid rgba(255,255,255,0.5);
@@ -231,6 +231,7 @@
     display:flex; border:1px solid var(--border); border-radius:4px; overflow:hidden; background:#0e1116;
   }
   .reel-feature .reel-thumb{position:relative; width:110px; flex-shrink:0; aspect-ratio:9/16; overflow:hidden;}
+  .reel-thumb::before{content:""; position:absolute; inset:0; background-size:cover; background-position:center;}
   .reel-feature .reel-thumb .reel-play{width:36px; height:36px;}
   .reel-feature .reel-thumb .reel-play::after{border-width:6px 0 6px 9px;}
   .reel-feature .reel-info{padding:16px 18px; display:flex; flex-direction:column; justify-content:center; gap:10px;}
