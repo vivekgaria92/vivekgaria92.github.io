@@ -1,0 +1,656 @@
+<title>Vivek Garia</title>
+<meta name="description" content="AI growth strategist and systems builder — content, brands, and the machinery behind them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    color-scheme: dark;
+    --bg:#0b0d11;
+    --bg-soft:#0f1218;
+    --surface:#151920;
+    --surface-2:#1c212a;
+    --border:#262c36;
+    --border-soft:#1d222b;
+    --text:#edf0f3;
+    --text-dim:#9aa3b0;
+    --text-faint:#5c6472;
+    --accent:#e3a54d;
+    --accent-strong:#f0b968;
+    --accent-soft:rgba(227,165,77,0.12);
+    --accent-line:rgba(227,165,77,0.35);
+    --dr-psy:#7fb3d9;
+    --strengthiva:#6fbf8f;
+    --serif:'Fraunces', Georgia, 'Times New Roman', serif;
+    --sans:'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    --mono:'JetBrains Mono', 'SF Mono', 'Courier New', monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    padding-inline:20px;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  .wrap{max-width:1040px; margin:0 auto;}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:sticky; top:env(safe-area-inset-top,0px);
+    z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding-block:18px;
+    background:rgba(11,13,17,0.8);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+  }
+  .mark{
+    font-family:var(--serif); font-style:italic; font-weight:500;
+    font-size:1.25rem; color:var(--text); text-decoration:none; letter-spacing:0.01em;
+  }
+  .navlinks{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
+  .navlinks a{
+    color:var(--text-dim); text-decoration:none; font-size:0.85rem;
+    font-family:var(--mono); letter-spacing:0.03em; text-transform:uppercase;
+    transition:color 0.2s ease;
+  }
+  .navlinks a:hover{color:var(--accent);}
+  @media (max-width:600px){ .navlinks{gap:16px;} .navlinks a{font-size:0.72rem;} }
+
+  /* ---------- hero ---------- */
+  header.hero{padding-block:64px 56px;}
+  .eyebrow{
+    font-family:var(--mono); font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--accent); display:flex; align-items:center; gap:10px; margin-bottom:22px;
+  }
+  .eyebrow::before{content:""; width:26px; height:1px; background:var(--accent-line);}
+  h1.headline{
+    font-family:var(--serif); font-weight:500; font-style:normal;
+    font-size:clamp(2.4rem, 6vw, 4.4rem); line-height:1.05; letter-spacing:-0.01em;
+    margin:0 0 24px; text-wrap:balance; max-width:14ch;
+  }
+  h1.headline em{color:var(--accent); font-style:italic; font-weight:400;}
+  .lede{
+    font-size:1.08rem; color:var(--text-dim); max-width:56ch; margin:0 0 34px;
+  }
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:56px;}
+  .btn{
+    font-family:var(--mono); font-size:0.82rem; letter-spacing:0.03em; text-decoration:none;
+    padding:13px 22px; border-radius:2px; display:inline-flex; align-items:center; gap:8px;
+    transition:transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+  }
+  .btn-primary{background:var(--accent); color:#1a1305; font-weight:600;}
+  .btn-primary:hover{background:var(--accent-strong); transform:translateY(-1px);}
+  .btn-ghost{border:1px solid var(--border); color:var(--text);}
+  .btn-ghost:hover{border-color:var(--accent-line); color:var(--accent-strong);}
+
+  .stat-strip{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:var(--border); border:1px solid var(--border);
+  }
+  .stat{background:var(--bg-soft); padding:20px 18px;}
+  .stat b{
+    display:block; font-family:var(--mono); font-size:1.6rem; color:var(--accent);
+    font-variant-numeric:tabular-nums; margin-bottom:6px;
+  }
+  .stat span{font-size:0.8rem; color:var(--text-dim); line-height:1.4; display:block;}
+  @media (max-width:680px){ .stat-strip{grid-template-columns:repeat(2,1fr);} }
+
+  /* ---------- section shell ---------- */
+  section{padding-block:72px;}
+  .section-head{margin-bottom:40px;}
+  .section-num{
+    font-family:var(--mono); font-size:0.78rem; color:var(--text-faint); letter-spacing:0.1em;
+    display:block; margin-bottom:10px;
+  }
+  h2.section-title{
+    font-family:var(--serif); font-weight:500; font-size:clamp(1.7rem,3.4vw,2.4rem);
+    margin:0; letter-spacing:-0.01em;
+  }
+  .section-sub{color:var(--text-dim); max-width:56ch; margin-top:14px; font-size:0.98rem;}
+
+  /* ---------- work cards ---------- */
+  .case{
+    border:1px solid var(--border); background:var(--surface);
+    border-radius:4px; padding:clamp(24px,4vw,44px); margin-bottom:28px;
+  }
+  .case-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:20px;
+    flex-wrap:wrap; margin-bottom:18px;
+  }
+  .case-brand{font-family:var(--serif); font-style:italic; font-size:clamp(1.6rem,3vw,2.1rem); margin:0;}
+  .case-role{
+    font-family:var(--mono); font-size:0.76rem; color:var(--text-faint); text-transform:uppercase;
+    letter-spacing:0.08em; text-align:right;
+  }
+  .case-desc{color:var(--text-dim); max-width:62ch; margin-bottom:26px;}
+
+  .case-stats{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:14px;
+    margin-bottom:30px;
+  }
+  .case-stats .tile{
+    background:var(--surface-2); border:1px solid var(--border-soft); border-radius:3px; padding:14px 16px;
+  }
+  .case-stats .tile b{
+    display:block; font-family:var(--mono); font-size:1.2rem; font-variant-numeric:tabular-nums;
+    margin-bottom:4px;
+  }
+  .case-stats .tile span{font-size:0.76rem; color:var(--text-dim);}
+  .dr-psy-accent .tile b{color:var(--dr-psy);}
+  .strengthiva-accent .tile b{color:var(--strengthiva);}
+
+  .case-grid{display:grid; grid-template-columns:1.1fr 1fr; gap:22px;}
+  @media (max-width:760px){ .case-grid{grid-template-columns:1fr;} }
+
+  .panel-label{
+    font-family:var(--mono); font-size:0.72rem; color:var(--text-faint); text-transform:uppercase;
+    letter-spacing:0.09em; margin-bottom:10px; display:block;
+  }
+
+  /* browser mockup */
+  .browser{border:1px solid var(--border); border-radius:4px; overflow:hidden; background:#0e1116;}
+  .browser-bar{
+    display:flex; align-items:center; gap:8px; padding:9px 12px; background:var(--surface-2);
+    border-bottom:1px solid var(--border);
+  }
+  .dot{width:8px; height:8px; border-radius:50%; background:var(--border);}
+  .browser-url{
+    font-family:var(--mono); font-size:0.72rem; color:var(--text-faint); background:var(--bg-soft);
+    padding:4px 10px; border-radius:20px; margin-left:6px; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  }
+  .browser-body{padding:26px 22px; min-height:150px; display:flex; flex-direction:column; justify-content:center;}
+  .browser-tag{font-size:0.72rem; font-family:var(--mono); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px;}
+  .browser-headline{font-family:var(--serif); font-size:1.35rem; line-height:1.25; margin:0 0 8px; max-width:22ch;}
+  .browser-headline em{font-style:italic;}
+  .browser-note{font-size:0.82rem; color:var(--text-dim); margin-bottom:16px;}
+  .visit-link{
+    font-family:var(--mono); font-size:0.78rem; text-decoration:none; display:inline-flex; align-items:center; gap:6px;
+    width:fit-content; border-bottom:1px solid transparent; transition:border-color 0.2s ease;
+  }
+  .visit-link:hover{border-bottom-color:currentColor;}
+
+  /* reels */
+  .reel-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  .reel{
+    position:relative; border:1px solid var(--border); border-radius:4px; overflow:hidden;
+    aspect-ratio:9/13; text-decoration:none; display:flex; flex-direction:column; justify-content:flex-end;
+    padding:14px; color:var(--text);
+  }
+  .reel::before{content:""; position:absolute; inset:0; opacity:0.9;}
+  .reel-dp1::before{background:radial-gradient(circle at 30% 20%, #2c4a63, #0e1116 72%);}
+  .reel-sv1::before{background:radial-gradient(circle at 30% 20%, #235c40, #0e1116 72%);}
+  .reel-sv2::before{background:radial-gradient(circle at 70% 25%, #4a5c23, #0e1116 72%);}
+  .reel-sv3::before{background:radial-gradient(circle at 50% 15%, #5c3f23, #0e1116 72%);}
+  .reel-sv4::before{background:radial-gradient(circle at 70% 20%, #3d5c8f, #0e1116 72%);}
+  .reel-play{
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    width:44px; height:44px; border-radius:50%; border:1px solid rgba(255,255,255,0.5);
+    display:flex; align-items:center; justify-content:center; backdrop-filter:blur(2px);
+  }
+  .reel-play::after{content:""; border-style:solid; border-width:7px 0 7px 11px; border-color:transparent transparent transparent #fff; margin-left:3px;}
+  .reel-meta{position:relative; z-index:1;}
+  .reel-topic{font-size:0.86rem; font-weight:600; margin-bottom:4px; text-wrap:balance;}
+  .reel-stat{font-family:var(--mono); font-size:0.72rem; color:rgba(237,240,243,0.75);}
+  @media (max-width:420px){ .reel-grid{grid-template-columns:1fr 1fr;} }
+  .reel-note{font-size:0.76rem; color:var(--text-faint); margin-top:10px;}
+  .reel-more{
+    font-family:var(--mono); font-size:0.78rem; color:var(--text-dim); text-decoration:none;
+    display:inline-flex; align-items:center; gap:6px; margin-top:12px; border-bottom:1px solid transparent;
+    transition:color 0.2s ease, border-color 0.2s ease;
+  }
+  .reel-more:hover{color:var(--accent); border-bottom-color:var(--accent-line);}
+
+  /* single featured reel (Dr. Psy) */
+  .reel-feature{
+    display:flex; border:1px solid var(--border); border-radius:4px; overflow:hidden; background:#0e1116;
+  }
+  .reel-feature .reel-thumb{position:relative; width:110px; flex-shrink:0; aspect-ratio:9/16; overflow:hidden;}
+  .reel-feature .reel-thumb .reel-play{width:36px; height:36px;}
+  .reel-feature .reel-thumb .reel-play::after{border-width:6px 0 6px 9px;}
+  .reel-feature .reel-info{padding:16px 18px; display:flex; flex-direction:column; justify-content:center; gap:10px;}
+  .reel-feature .reel-quote{margin:0; font-size:0.9rem; line-height:1.5; color:var(--text);}
+  .reel-feature .reel-figures{font-family:var(--mono); font-size:0.74rem; color:var(--text-dim);}
+  .reel-feature .reel-figures b{color:var(--dr-psy); font-variant-numeric:tabular-nums; font-weight:500;}
+
+  /* vision panel */
+  .vision{margin-top:30px; border:1px dashed var(--border); border-radius:4px; padding:26px 24px; background:var(--bg-soft);}
+  .vision-label{
+    font-family:var(--mono); font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--accent); display:block; margin-bottom:8px;
+  }
+  .vision h4{font-family:var(--serif); font-style:italic; font-weight:500; font-size:1.4rem; margin:0 0 20px;}
+  .vision-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px 24px;}
+  @media (max-width:700px){ .vision-grid{grid-template-columns:1fr;} }
+  .vision-item{display:flex; gap:12px;}
+  .vision-num{font-family:var(--mono); color:var(--text-faint); font-size:0.85rem; flex-shrink:0; padding-top:1px;}
+  .vision-item h5{margin:0 0 4px; font-size:0.92rem; font-weight:600;}
+  .vision-item p{margin:0; font-size:0.85rem; color:var(--text-dim);}
+
+  .build-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:30px;}
+  @media (max-width:700px){ .build-grid{grid-template-columns:1fr;} }
+  .build-col p{font-size:0.9rem; color:var(--text-dim); margin:0;}
+
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:26px;}
+  .tag{
+    font-family:var(--mono); font-size:0.72rem; color:var(--text-dim); border:1px solid var(--border);
+    padding:5px 11px; border-radius:20px;
+  }
+
+  /* ---------- experience ---------- */
+  .timeline{border-left:1px solid var(--border); margin-left:6px;}
+  .role{position:relative; padding:0 0 34px 30px;}
+  .role::before{
+    content:""; position:absolute; left:-5px; top:4px; width:9px; height:9px; border-radius:50%;
+    background:var(--bg); border:2px solid var(--accent);
+  }
+  .role-when{font-family:var(--mono); font-size:0.74rem; color:var(--text-faint); letter-spacing:0.04em; margin-bottom:6px; display:block;}
+  .role-title{font-size:1.05rem; font-weight:600; margin:0 0 3px;}
+  .role-org{color:var(--accent); font-weight:500;}
+  .role-desc{color:var(--text-dim); font-size:0.92rem; max-width:60ch; margin-top:8px;}
+  .role.compact .role-desc{margin-top:4px;}
+
+  /* ---------- skills ---------- */
+  .skill-cols{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+  @media (max-width:700px){ .skill-cols{grid-template-columns:1fr;} }
+  .skill-col h3{
+    font-family:var(--mono); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--text-faint); margin:0 0 16px; font-weight:500;
+  }
+  .skill-col ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px;}
+  .skill-col li{
+    font-size:0.92rem; color:var(--text); padding-left:16px; position:relative;
+  }
+  .skill-col li::before{content:"—"; position:absolute; left:0; color:var(--accent);}
+
+  /* ---------- achievement strip ---------- */
+  .achieve{
+    display:flex; gap:20px; align-items:center; border:1px solid var(--border); background:var(--surface);
+    border-radius:4px; padding:22px 26px; flex-wrap:wrap;
+  }
+  .achieve-icon{font-family:var(--serif); font-style:italic; font-size:1.8rem; color:var(--accent);}
+  .achieve p{margin:0; color:var(--text-dim); font-size:0.94rem;}
+  .achieve b{color:var(--text);}
+
+  /* ---------- contact ---------- */
+  footer{padding-block:72px 60px; border-top:1px solid var(--border);}
+  .contact-title{
+    font-family:var(--serif); font-size:clamp(2rem,5vw,3.2rem); font-style:italic; font-weight:400;
+    margin:0 0 20px; text-wrap:balance; max-width:16ch;
+  }
+  .contact-row{display:flex; flex-wrap:wrap; gap:14px; margin-bottom:36px;}
+  .pill{
+    display:flex; align-items:center; gap:10px; border:1px solid var(--border); border-radius:30px;
+    padding:10px 18px; font-family:var(--mono); font-size:0.84rem; color:var(--text);
+  }
+  .pill button{
+    background:none; border:none; color:var(--accent); font-family:var(--mono); font-size:0.74rem;
+    cursor:pointer; padding:0; letter-spacing:0.03em;
+  }
+  .pill a{color:var(--text); text-decoration:none;}
+  .pill a:hover{color:var(--accent);}
+  .foot-meta{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-size:0.78rem; color:var(--text-faint); font-family:var(--mono);
+  }
+
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity 0.6s ease, transform 0.6s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+</style>
+
+<div class="wrap">
+
+  <nav>
+    <a class="mark" href="#top">Vivek Garia</a>
+    <ul class="navlinks">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" id="top">
+    <span class="eyebrow">Full-stack — content + systems</span>
+    <h1 class="headline">I turn ideas into <em>AI-run brands.</em></h1>
+    <p class="lede">10+ years running high-volume operations and cross-functional delivery, now spent founding and consulting for AI-native brands end to end — the content, the video, the website, and the decision logic underneath it. Based in Bangalore, working remotely.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#work">See the work ↓</a>
+      <a class="btn btn-ghost" href="#contact">Get in touch</a>
+    </div>
+    <div class="stat-strip">
+      <div class="stat"><b>10+</b><span>Years in ops &amp; program delivery</span></div>
+      <div class="stat"><b>2</b><span>AI-native brands built end to end</span></div>
+      <div class="stat"><b>200K+</b><span>SKUs managed across platforms</span></div>
+      <div class="stat"><b>35–42%</b><span>Operational efficiency gained</span></div>
+    </div>
+  </header>
+
+  <section id="work">
+    <div class="section-head reveal">
+      <span class="section-num">01 — Selected work</span>
+      <h2 class="section-title">Two brands, built the same way</h2>
+      <p class="section-sub">Strategy, content, and the systems behind the scenes — run through an AI-assisted pipeline in place of a traditional production team.</p>
+    </div>
+
+    <!-- Dr. Psy -->
+    <article class="case dr-psy-accent reveal">
+      <div class="case-top">
+        <h3 class="case-brand">Dr. Psy</h3>
+        <span class="case-role">Founder · Mar 2026 – Present</span>
+      </div>
+      <p class="case-desc">An AI-native psychiatric education platform, built solo — content strategy, character-consistent AI video, a full marketing website, and the analytics loop that told me what to make next.</p>
+
+      <div class="case-stats">
+        <div class="tile"><b>34,560</b><span>views — OCD reel</span></div>
+        <div class="tile"><b>34,198</b><span>views — Depression reel</span></div>
+        <div class="tile"><b>1,945</b><span>new follows from those two</span></div>
+        <div class="tile"><b>97%</b><span>of all-time follower growth</span></div>
+      </div>
+
+      <div class="case-grid">
+        <div>
+          <span class="panel-label">Website — drpsyai.com</span>
+          <div class="browser">
+            <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="browser-url">drpsyai.com</span></div>
+            <div class="browser-body">
+              <span class="browser-tag" style="color:var(--dr-psy)">Content → Trust → Assessment → Consultation</span>
+              <p class="browser-headline">How are you feeling <em>today?</em></p>
+              <p class="browser-note">Condition pages, three validated self-assessments (GAD-7, ASRS-v1.1, PHQ-8), and an AI chatbot that turns viewers into booked consultations.</p>
+              <a class="visit-link" style="color:var(--dr-psy)" href="https://drpsyai.com" target="_blank" rel="noopener">Visit drpsyai.com ↗</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <span class="panel-label">Featured reel</span>
+          <a class="reel-feature" href="https://www.instagram.com/reel/DZQVp0BSLf6/" target="_blank" rel="noopener">
+            <span class="reel-thumb reel-dp1"><span class="reel-play"></span></span>
+            <span class="reel-info">
+              <span class="reel-quote">"OCD is not weakness — and it's not a 'just think differently' problem. With the right treatment, it's largely manageable."</span>
+              <span class="reel-figures"><b>34.5K</b> views · <b>886</b> new follows · <b>1.6K+</b> likes</span>
+            </span>
+          </a>
+          <a class="reel-more" href="https://www.instagram.com/dr.psy_ai/" target="_blank" rel="noopener">Later reels trade raw views for sharper scripts &amp; production — full feed on @dr.psy_ai ↗</a>
+        </div>
+      </div>
+
+      <div class="build-grid">
+        <div class="build-col">
+          <span class="panel-label">Content</span>
+          <p>Every reel is built from a fixed set of story beats — myth correction, the clinical mechanism, a concrete diagnostic threshold, an explicit "a machine doesn't diagnose you" line, hope, and a call to action — but never the same opening twice. Carousels run in English; reels stay Hinglish, because that's where the audience actually lives. One line closes every single video: <em style="font-family:var(--serif);">"Apna khyaal rakhie, because mental health bhi health ka hi hissa hai."</em></p>
+        </div>
+        <div class="build-col">
+          <span class="panel-label">Funnel</span>
+          <p>A 15-second reel becomes a booked session in four steps: <b style="color:var(--text)">Content</b> pulls someone in, condition pages build <b style="color:var(--text)">Trust</b>, a validated self-screen (GAD-7, ASRS-v1.1, PHQ-8) turns curiosity into an <b style="color:var(--text)">Assessment</b>, and an AI chatbot carries the result straight into a booked <b style="color:var(--text)">Consultation</b> — no form, no drop-off.</p>
+        </div>
+      </div>
+
+      <div class="vision">
+        <span class="vision-label">Vision — full AI mode</span>
+        <h4>Where Dr. Psy goes next</h4>
+        <div class="vision-grid">
+          <div class="vision-item">
+            <span class="vision-num">01</span>
+            <div><h5>AI-first triage</h5><p>Every conversation opens with a complete intake — mood, history, risk signals — handled entirely by Dr. Psy before a human ever needs to step in.</p></div>
+          </div>
+          <div class="vision-item">
+            <span class="vision-num">02</span>
+            <div><h5>A real doctor pipeline</h5><p>Onboarding licensed psychiatrists directly into the booking flow, so an AI-flagged case reaches a real professional in one click, not a search.</p></div>
+          </div>
+          <div class="vision-item">
+            <span class="vision-num">03</span>
+            <div><h5>A community, not a feed</h5><p>Turning a one-way content audience into a moderated peer space — people managing the same condition, talking to each other, safely.</p></div>
+          </div>
+          <div class="vision-item">
+            <span class="vision-num">04</span>
+            <div><h5>One connected system</h5><p>Script to video to chatbot to scheduling, running as a single pipeline — care delivered at the scale of a hospital network, operated by one founder.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">AI video &amp; image pipeline</span>
+        <span class="tag">Content strategy</span>
+        <span class="tag">Astro / Cloudflare</span>
+        <span class="tag">Clinical assessments</span>
+        <span class="tag">Lead funnel design</span>
+      </div>
+    </article>
+
+    <!-- Strengthiva -->
+    <article class="case strengthiva-accent reveal">
+      <div class="case-top">
+        <h3 class="case-brand">Strengthiva</h3>
+        <span class="case-role">Freelance Growth &amp; Systems Consultant · Apr 2026 – Present</span>
+      </div>
+      <p class="case-desc">An Ayurveda D2C brand. Brought in for content and growth, then pulled into the harder problem — and now embedded in the brand's core decision-making team, shaping product, operations, and system design alongside the founders.</p>
+
+      <div class="case-stats">
+        <div class="tile"><b>144</b><span>profile combinations mapped to plans</span></div>
+        <div class="tile"><b>1</b><span>critical data defect caught pre-launch</span></div>
+        <div class="tile"><b>2</b><span>channels — Instagram &amp; Facebook</span></div>
+        <div class="tile"><b>3</b><span>functions — content, ops, product logic</span></div>
+      </div>
+
+      <div class="case-grid">
+        <div>
+          <span class="panel-label">Website — strengthiva.com</span>
+          <div class="browser">
+            <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="browser-url">strengthiva.com</span></div>
+            <div class="browser-body">
+              <span class="browser-tag" style="color:var(--strengthiva)">Assessment → Diet plan → Product</span>
+              <p class="browser-headline">A doctor, a diagnosis, <em>then the medicine.</em></p>
+              <p class="browser-note">A 6-section assessment reads digestion, sleep, energy and current imbalance, then hands back a personalised diet plan — and a product only when the reading actually calls for one.</p>
+              <a class="visit-link" style="color:var(--strengthiva)" href="https://strengthiva.com" target="_blank" rel="noopener">Visit strengthiva.com ↗</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <span class="panel-label">Featured reels</span>
+          <div class="reel-grid">
+            <a class="reel reel-sv1" href="https://www.instagram.com/reel/Daxfmw7PJ6x/" target="_blank" rel="noopener">
+              <span class="reel-play"></span>
+              <span class="reel-meta"><span class="reel-topic">The founding thesis</span><span class="reel-stat">"Understand the person first"</span></span>
+            </a>
+            <a class="reel reel-sv2" href="https://www.instagram.com/reel/DcJriZGms6r/" target="_blank" rel="noopener">
+              <span class="reel-play"></span>
+              <span class="reel-meta"><span class="reel-topic">Agni, explained</span><span class="reel-stat">Digestion, no jargon</span></span>
+            </a>
+            <a class="reel reel-sv3" href="https://www.instagram.com/reel/Dcd-Rlmimqz/" target="_blank" rel="noopener">
+              <span class="reel-play"></span>
+              <span class="reel-meta"><span class="reel-topic">"Fatty liver ≠ alcohol"</span><span class="reel-stat">Myth-busting</span></span>
+            </a>
+            <a class="reel reel-sv4" href="https://www.instagram.com/reel/DdJUd3aied5/" target="_blank" rel="noopener">
+              <span class="reel-play"></span>
+              <span class="reel-meta"><span class="reel-topic">Build what's strong</span><span class="reel-stat">Prevention → assessment</span></span>
+            </a>
+          </div>
+          <a class="reel-more" href="https://www.instagram.com/strengthiva/" target="_blank" rel="noopener">+3 more reels on @strengthiva ↗</a>
+        </div>
+      </div>
+
+      <div class="build-grid">
+        <div class="build-col">
+          <span class="panel-label">Systems &amp; operations</span>
+          <p>Built the brand's Purchase Order and GRN (Goods Receipt Note) tools from scratch, along with the inventory-management logic that reconciles what's ordered against what actually arrives. Also own catalog management across a growing 17-SKU line, and caught a critical data-mapping defect in the live assessment that was silently mis-routing customer recommendations — before it shipped.</p>
+        </div>
+        <div class="build-col">
+          <span class="panel-label">Product transparency</span>
+          <p>Working directly with the dev team so the product experience shows its work — formulation and sourcing detail, traced back to the classical Ayurvedic text behind each ingredient, instead of generic supplement-brand copy.</p>
+        </div>
+      </div>
+
+      <div class="vision">
+        <span class="vision-label">Vision — what's next</span>
+        <h4>Where Strengthiva goes next</h4>
+        <div class="vision-grid">
+          <div class="vision-item">
+            <span class="vision-num">01</span>
+            <div><h5>Face-scan health checks</h5><p>A quick camera-based scan for basic vitals and visible wellness markers, run before the written assessment even starts — cutting the first read down to seconds.</p></div>
+          </div>
+          <div class="vision-item">
+            <span class="vision-num">02</span>
+            <div><h5>One inventory brain</h5><p>PO, GRN, and catalog data unified into a single live system, so procurement and product decisions run off the same real-time picture instead of parallel spreadsheets.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Content &amp; video strategy</span>
+        <span class="tag">Personalization logic</span>
+        <span class="tag">Procurement &amp; GRN tools</span>
+        <span class="tag">Inventory management</span>
+        <span class="tag">Catalog management</span>
+        <span class="tag">Product transparency</span>
+      </div>
+    </article>
+  </section>
+
+  <section id="experience">
+    <div class="section-head reveal">
+      <span class="section-num">02 — Experience</span>
+      <h2 class="section-title">Before the brands, a decade of operations</h2>
+      <p class="section-sub">Project delivery and stakeholder management at scale — the discipline that now runs under the AI work.</p>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="role">
+        <span class="role-when">Mar 2026 – Present · Remote</span>
+        <p class="role-title"><span class="role-org">Dr. Psy</span> — Founder</p>
+        <p class="role-desc">AI-native mental health education platform. Content, video, website, and analytics, run solo through an AI-assisted pipeline.</p>
+      </div>
+      <div class="role">
+        <span class="role-when">Apr 2026 – Present · Remote</span>
+        <p class="role-title"><span class="role-org">Strengthiva</span> — Freelance Growth &amp; Systems Consultant</p>
+        <p class="role-desc">Content, growth, and operational-decision strategy for an Ayurveda D2C brand's assessment-led funnel.</p>
+      </div>
+      <div class="role">
+        <span class="role-when">Feb 2025 – Dec 2025 · Remote</span>
+        <p class="role-title"><span class="role-org">Zeproc AS, Norway</span> — Senior Cataloger / Project Manager</p>
+        <p class="role-desc">Owned delivery for a product data platform covering 200,000+ SKUs. Cut incomplete records from 28% to under 2% and lifted organic impressions 60% through SEO and Merchant Center compliance.</p>
+      </div>
+      <div class="role">
+        <span class="role-when">Feb 2019 – Feb 2025 · Bangalore</span>
+        <p class="role-title"><span class="role-org">Swiggy</span> — Senior ORM Executive</p>
+        <p class="role-desc">Led online reputation management across six platforms for India's largest food-delivery brand, monitoring 10,000+ weekly mentions and coordinating influencer campaigns.</p>
+      </div>
+      <div class="role compact">
+        <span class="role-when">Apr 2018 – Jan 2019 · Bangalore</span>
+        <p class="role-title"><span class="role-org">Expedia (Aegis)</span> — Senior Associate, Operations</p>
+        <p class="role-desc">Global travel support and vendor coordination across SABRE and AMADEUS GDS platforms.</p>
+      </div>
+      <div class="role compact">
+        <span class="role-when">Aug 2014 – Feb 2017 · Kolkata</span>
+        <p class="role-title"><span class="role-org">Wipro</span> — Technical Support Executive</p>
+        <p class="role-desc">Level 1 &amp; 2 support for UK broadband, telephony and TV services; root-cause analysis on network issues.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-head reveal">
+      <span class="section-num">03 — Skills</span>
+      <h2 class="section-title">What I actually work with</h2>
+    </div>
+    <div class="skill-cols reveal">
+      <div class="skill-col">
+        <h3>Build &amp; strategy</h3>
+        <ul>
+          <li>AI content &amp; video generation</li>
+          <li>Website dev (Astro / Cloudflare)</li>
+          <li>Decision strategy &amp; rules design</li>
+          <li>Taxonomy &amp; ontology design</li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <h3>Data &amp; ops</h3>
+        <ul>
+          <li>Advanced Excel &amp; Google Sheets</li>
+          <li>Process automation</li>
+          <li>Dashboard &amp; report building</li>
+          <li>SQL &amp; product data enrichment</li>
+          <li>Procurement &amp; GRN process design</li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <h3>Growth &amp; comms</h3>
+        <ul>
+          <li>Social media &amp; ORM analytics</li>
+          <li>Google Merchant Center</li>
+          <li>Customer handling &amp; support</li>
+          <li>Stakeholder communication</li>
+          <li>Cross-functional collaboration</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="achieve reveal" style="margin-top:36px;">
+      <span class="achieve-icon">♞</span>
+      <p><b>Competitive chess player</b> — represented school at national level, gold medalist at the Inter-Symbiosis College Tournament.</p>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <span class="section-num reveal">04 — Contact</span>
+    <h2 class="contact-title reveal">Let's build something that runs itself.</h2>
+    <div class="contact-row reveal">
+      <span class="pill">vivekgaria92@gmail.com <button type="button" id="copy-email">copy</button></span>
+      <span class="pill">+91 63952 31266</span>
+      <span class="pill"><a href="https://www.linkedin.com/in/vivekgaria92" target="_blank" rel="noopener">linkedin.com/in/vivekgaria92 ↗</a></span>
+      <span class="pill">Bangalore, India</span>
+    </div>
+    <div class="foot-meta">
+      <span>© 2026 Vivek Garia</span>
+      <span>Available for freelance projects</span>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  (function(){
+    var btn = document.getElementById('copy-email');
+    if (btn) {
+      btn.addEventListener('click', function(){
+        var text = 'vivekgaria92@gmail.com';
+        var done = function(){ btn.textContent = 'copied'; setTimeout(function(){ btn.textContent = 'copy'; }, 1600); };
+        try {
+          navigator.clipboard.writeText(text).then(done).catch(function(){
+            btn.textContent = 'select & copy';
+          });
+        } catch(e) {
+          btn.textContent = 'select & copy';
+        }
+      });
+    }
+
+    try {
+      var els = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function(entries){
+          entries.forEach(function(entry){
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        els.forEach(function(el){ io.observe(el); });
+      } else {
+        els.forEach(function(el){ el.classList.add('in'); });
+      }
+    } catch(e) {}
+  })();
+</script>
